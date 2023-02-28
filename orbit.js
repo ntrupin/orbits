@@ -245,7 +245,7 @@ let orbit = function(p) {
             if (apogees.length > 0 && perigees.length > 0) { 
                 ch("apogee").innerHTML = apogees[apogees.length - 1].mag().toExponential(3);
                 ch("perigee").innerHTML = perigees[perigees.length - 1].mag().toExponential(3);
-                ch("tilt").innerHTML = (90 - Math.atan(Math.abs(perigees[perigees.length - 1].y / perigees[perigees.length - 1].x)) * (180 / Math.PI)).toFixed(3);
+                ch("tilt").innerHTML = (Math.atan2(perigees[perigees.length - 1].y, perigees[perigees.length - 1].x) * (180 / Math.PI)).toFixed(3);
                 ch("eccentricity").innerHTML = Math.sqrt(1 - (perigees[perigees.length - 1].mag() / apogees[apogees.length - 1].mag())).toFixed(3);
             }
         }
